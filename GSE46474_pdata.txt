@@ -1,0 +1,41 @@
+title	characteristics_ch1	characteristics_ch1.1	characteristics_ch1.2	age_tx:ch1
+GSM1130812	WB_AR1	age_tx: 55.7	Sex: M	race: Caucasian	55.7
+GSM1130813	WB_NR1	age_tx: 50.3	Sex: M	race: Caucasian	50.3
+GSM1130814	WB_AR2	age_tx: 52.6	Sex: F	race: Caucasian	52.6
+GSM1130815	WB_NR2	age_tx: 44.8	Sex: F	race: Caucasian	44.8
+GSM1130816	WB_AR3	age_tx: 38.8	Sex: F	race: Asian Indian	38.8
+GSM1130817	WB_NR3	age_tx: 51.1	Sex: M	race: Caucasian	51.1
+GSM1130818	WB_AR4	age_tx: 55.4	Sex: M	race: Caucasian	55.4
+GSM1130819	WB_NR4	age_tx: 35.5	Sex: F	race: Caucasian	35.5
+GSM1130820	WB_AR5	age_tx: 31.8	Sex: M	race: Caucasian	31.8
+GSM1130821	WB_NR5	age_tx: 55.2	Sex: F	race: Caucasian	55.2
+GSM1130822	WB_AR6	age_tx: 37	Sex: M	race: Caucasian	37
+GSM1130823	WB_NR6	age_tx: 58.4	Sex: M	race: Caucasian	58.4
+GSM1130824	WB_AR7	age_tx: 27	Sex: M	race: Caucasian	27
+GSM1130825	WB_NR7	age_tx: 46.6	Sex: M	race: Caucasian	46.6
+GSM1130826	WB_AR8	age_tx: 50.3	Sex: M	race: Caucasian	50.3
+GSM1130827	WB_NR8	age_tx: 55.3	Sex: F	race: North American Indian	55.3
+GSM1130828	WB_AR9	age_tx: 58.7	Sex: M	race: Caucasian	58.7
+GSM1130829	WB_NR9	age_tx: 47.6	Sex: F	race: Caucasian	47.6
+GSM1130830	WB_AR10	age_tx: 57.5	Sex: M	race: Caucasian	57.5
+GSM1130831	WB_NR10	age_tx: 58.1	Sex: M	race: Asian Indian	58.1
+GSM1130832	WB_AR11	age_tx: 38	Sex: M	race: Caucasian	38
+GSM1130833	WB_NR11	age_tx: 47.3	Sex: F	race: Caucasian	47.3
+GSM1130834	WB_AR12	age_tx: 45.1	Sex: M	race: Caucasian	45.1
+GSM1130835	WB_NR12	age_tx: 40.1	Sex: M	race: Caucasian	40.1
+GSM1130836	WB_AR13	age_tx: 42	Sex: F	race: Caucasian	42
+GSM1130837	WB_NR13	age_tx: 56.8	Sex: M	race: Asian Oriental	56.8
+GSM1130838	WB_AR14	age_tx: 51.8	Sex: F	race: Caucasian	51.8
+GSM1130839	WB_NR14	age_tx: 54.6	Sex: F	race: Caucasian	54.6
+GSM1130840	WB_AR15	age_tx: 37.6	Sex: M	race: Caucasian	37.6
+GSM1130841	WB_NR15	age_tx: 50.8	Sex: F	race: Caucasian	50.8
+GSM1130842	WB_AR16	age_tx: 49.7	Sex: M	race: Caucasian	49.7
+GSM1130843	WB_NR16	age_tx: 49.5	Sex: M	race: Caucasian	49.5
+GSM1130844	WB_AR17	age_tx: 43.4	Sex: M	race: Caucasian	43.4
+GSM1130845	WB_NR17	age_tx: 58.6	Sex: M	race: Caucasian	58.6
+GSM1130846	WB_AR18	age_tx: 50.2	Sex: M	race: Caucasian	50.2
+GSM1130847	WB_NR18	age_tx: 20.7	Sex: M	race: Caucasian	20.7
+GSM1130848	WB_AR19	age_tx: 20.3	Sex: F	race: Caucasian	20.3
+GSM1130849	WB_NR19	age_tx: 42.3	Sex: M	race: Caucasian	42.3
+GSM1130850	WB_AR20	age_tx: 71.8	Sex: F	race: Caucasian	71.8
+GSM1130851	WB_NR20	age_tx: 57.1	Sex: M	race: Asian Oriental	57.1
