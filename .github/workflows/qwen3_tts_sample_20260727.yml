@@ -1,0 +1,74 @@
+name: Qwen3-TTS audiobook proof 20260727
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tts_sota_qwen3_20260727/RUN.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build and audio dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git curl ffmpeg libopenblas-dev libopenblas-pthread-dev
+          if [ ! -e /usr/include/openblas ]; then
+            OPENBLAS_DIR=$(find /usr/include -maxdepth 3 -type d -name 'openblas*' | head -n 1 || true)
+            if [ -n "$OPENBLAS_DIR" ]; then sudo ln -s "$OPENBLAS_DIR" /usr/include/openblas; fi
+          fi
+
+      - name: Build Qwen3-TTS pure-C engine
+        run: |
+          git clone --depth 1 https://github.com/gabriele-mastrapasqua/qwen3-tts.git qwen3-tts-engine
+          cd qwen3-tts-engine
+          make blas -j2
+
+      - name: Download Qwen3-TTS 0.6B CustomVoice weights
+        run: |
+          cd qwen3-tts-engine
+          bash download_model.sh --model small
+
+      - name: Render three-chapter neural-voice proof
+        run: |
+          python3 tts_sota_qwen3_20260727/generate_sample.py \
+            --engine "$GITHUB_WORKSPACE/qwen3-tts-engine/qwen_tts" \
+            --model "$GITHUB_WORKSPACE/qwen3-tts-engine/qwen3-tts-0.6b" \
+            --out "$GITHUB_WORKSPACE/tts_output"
+
+      - name: Inspect outputs
+        run: |
+          find tts_output -maxdepth 2 -type f -printf '%p %k KB\n' | sort
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 "tts_output/《辐射废土》前三章_Qwen3-TTS神经语音样片.mp3"
+
+      - name: Upload rendered sample
+        uses: actions/upload-artifact@v4
+        with:
+          name: qwen3-tts-audiobook-proof
+          path: |
+            tts_output/《辐射废土》前三章_Qwen3-TTS神经语音样片.mp3
+            tts_output/《辐射废土》前三章_Qwen3-TTS神经语音样片.wav
+            tts_output/README.txt
+            tts_output/segments.json
+          compression-level: 0
+          retention-days: 7
+
+      - name: Record workflow run id
+        if: always()
+        run: |
+          mkdir -p tts_sota_qwen3_20260727
+          printf '%s\n' "$GITHUB_RUN_ID" > tts_sota_qwen3_20260727/run_id.txt
+          printf '%s\n' "${{ job.status }}" > tts_sota_qwen3_20260727/run_status.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tts_sota_qwen3_20260727/run_id.txt tts_sota_qwen3_20260727/run_status.txt
+          git commit -m "Record Qwen3-TTS render run $GITHUB_RUN_ID" || true
+          git push || true
