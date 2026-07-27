@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'tts_sota_qwen3_20260727/RUN.txt'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tts_sota_qwen3_20260727/PR_RUN.txt'
 
 permissions:
   contents: write
@@ -62,7 +66,7 @@ jobs:
           retention-days: 7
 
       - name: Record workflow run id
-        if: always()
+        if: always() && github.event_name == 'push'
         run: |
           mkdir -p tts_sota_qwen3_20260727
           printf '%s\n' "$GITHUB_RUN_ID" > tts_sota_qwen3_20260727/run_id.txt
